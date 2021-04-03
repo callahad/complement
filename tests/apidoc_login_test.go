@@ -19,14 +19,14 @@ func TestLogin(t *testing.T) {
 		// sytest: POST /login can log in as a user
 		t.Run("POST /login can login as user", func(t *testing.T) {
 			t.Parallel()
-			res := unauthedClient.MustDo(t, "POST", []string{"_matrix", "client", "r0", "register"}, json.RawMessage(`{
+			unauthedClient.MustDo(t, "POST", []string{"_matrix", "client", "r0", "register"}, json.RawMessage(`{
 				"auth": {
 					"type": "m.login.dummy"
 				},
 				"username": "post-login-user",
 				"password": "superuser"
 			}`))
-			res = unauthedClient.MustDo(t, "POST", []string{"_matrix", "client", "r0", "login"}, json.RawMessage(`
+			res := unauthedClient.MustDo(t, "POST", []string{"_matrix", "client", "r0", "login"}, json.RawMessage(`
 			{
 				"type": "m.login.password"
 				"identifier": {
