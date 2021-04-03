@@ -2,12 +2,13 @@ package tests
 
 import (
 	"encoding/json"
+	"testing"
+
+	"github.com/tidwall/gjson"
+
 	"github.com/matrix-org/complement/internal/b"
 	"github.com/matrix-org/complement/internal/match"
 	"github.com/matrix-org/complement/internal/must"
-	"github.com/tidwall/gjson"
-	"io/ioutil"
-	"testing"
 )
 
 func TestLogin(t *testing.T) {
