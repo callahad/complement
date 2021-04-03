@@ -25,8 +25,6 @@ func TestLogin(t *testing.T) {
 				"username": "post-login-user",
 				"password": "superuser"
 			}`))
-			body, _ := ioutil.ReadAll(res.Body)
-			userId := gjson.Get(string(body), "user_id")
 			res = unauthedClient.MustDo(t, "POST", []string{"_matrix", "client", "r0", "login"}, json.RawMessage(`
 			{
 				"type": "m.login.password"
